@@ -1,0 +1,7 @@
+{
+  "**/*.ts?(x)": "yarn type-check",
+  "**/*.(ts|tsx|js)": [
+    "yarn lint .",
+    "yarn prettier --write"
+  ]
+}
