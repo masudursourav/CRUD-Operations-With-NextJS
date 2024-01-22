@@ -18,8 +18,6 @@ export default function EditFrom({ post }: { post: BlogT }) {
   const editPostWithId = editPost.bind(null, post.id);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [state, dispatch] = useFormState(editPostWithId, initialState);
-  console.log(dispatch);
-  console.log(editPostWithId);
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLFormElement>(null);
   function handleClick(e: { preventDefault: () => void }) {
@@ -55,7 +53,7 @@ export default function EditFrom({ post }: { post: BlogT }) {
             className='mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500'
             placeholder='Enter the title'
             defaultValue=''
-W          />
+          />
           {/* <Select name='select'>
             <SelectTrigger className='w-[180px]'>
               <SelectValue placeholder='Select a fruit' />

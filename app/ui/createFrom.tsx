@@ -18,15 +18,7 @@ import { useState } from 'react';
 import { useFormState } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+
 const formSchema = z.object({
   title: z
     .string()
@@ -39,7 +31,8 @@ const formSchema = z.object({
     message: 'Content must be at least 5 characters.',
   }),
 });
-export default function Page() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function CreateForm({ onClose }: { onClose: any }) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -54,6 +47,7 @@ export default function Page() {
     // ✅ This will be type-safe and validated.
     console.log(values);
     setShow(!show);
+    onClose();
   }
 
   const initialState = { message: null, errors: {} };
